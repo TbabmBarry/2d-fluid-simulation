@@ -14,21 +14,20 @@ void Viscosity::setTarget(vector<Particle*> particles)
 }
 
 void Viscosity::apply(System* s)
-{
+{   // force = mg
   if (this->active)
   {
-    double mu=10;
     for (Particle *pi : particles) {
         if (pi->rigid || pi->cloth) continue;
         Vec2f viscosityForce = Vec2f(0, 0);
 
         vector<Particle*> targets = s->grid.query(pi);
         for (Particle *pj : targets) {
-            viscosityForce += mu * pj->mass * (pj->m_Velocity - pi->m_Velocity) / pj->density
+            viscosityForce = pj->mass * (pj->m_Velocity - pi->m_Velocity) / pj->density
                              * Viscosity::ddW(pi->m_Position - pj->m_Position);
         }
-        pi->vForce = viscosityForce;
-        pi->m_Force += viscosityForce;
+        pi->vForce = u * viscosityForce;
+        pi->force += u * viscosityForce;
     }
   }
 }
