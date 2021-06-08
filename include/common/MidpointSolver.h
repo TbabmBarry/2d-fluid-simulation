@@ -1,4 +1,3 @@
-#pragma once
 #include "Solver.h"
 
 class MidpointSolver : public Solver {

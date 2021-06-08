@@ -1,4 +1,3 @@
-#pragma once
 #include <gfx/vec2.h>
 #include <math.h>
 #include "Constraint.h"

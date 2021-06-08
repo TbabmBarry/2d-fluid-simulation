@@ -1,4 +1,3 @@
-#pragma once
 #include <stdio.h>
 #include "Force.h"
 #include <gfx/mat2.h>
