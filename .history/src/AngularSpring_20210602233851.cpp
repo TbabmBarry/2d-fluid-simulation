@@ -21,7 +21,7 @@ void AngularSpring::setTarget(vector<Particle*> particles)
     this->particles = particles;
 }
 
-void AngularSpring::apply(System* s)
+void AngularSpring::apply()
 {
   if (this->active)
   {

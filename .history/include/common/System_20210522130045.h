@@ -7,7 +7,6 @@
 #include "Solver.h"
 #include <vector>
 #include "Eigen/Dense"
-#include "Grid.h"
 
 using namespace Eigen;
 
@@ -25,8 +24,8 @@ class System {
         vector<Constraint*> constraints;
 
 
+        bool springsCanBreak = false;
         bool wall;
-        Grid grid;
         Solver* solver;
         // Unit step time
         float dt;

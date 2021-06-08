@@ -159,7 +159,7 @@ void System::applyForces()
 {
     for (int i = 0; i < forces.size(); i++) 
     {
-        forces[i]->apply(this);
+        forces[i]->apply();
     }
 }
 

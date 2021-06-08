@@ -21,7 +21,7 @@ void ExternalForce::setActive(bool state){
     active = state;
 }
 
-void ExternalForce::apply(System* s)
+void ExternalForce::apply()
 {
     if (!active)
         return;

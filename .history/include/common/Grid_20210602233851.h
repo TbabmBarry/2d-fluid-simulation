@@ -16,7 +16,7 @@ class Grid {
         Grid(int x, int y, float delta, Vec2f offset = Vec2f(0,0));
         void insert(vector<Particle*> particles);
         void clear();
-        vector<Particle*> query(Particle *p);
+        vector<Particle*> query(Vec2f &pos);
 
     private:
         void insert(Particle *p);

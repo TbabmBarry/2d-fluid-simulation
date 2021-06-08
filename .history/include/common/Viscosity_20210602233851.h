@@ -5,11 +5,11 @@
 #include "Force.h"
 #include <map>
 
-class GravityForce : public Force {
+class Viscosity : public Force {
   public:
-    GravityForce(vector<Particle*> particles, Vec2f g);
+    Viscosity(vector<Particle*> particles);
     void setTarget(vector<Particle*> particles) override;
-    void apply(System* s) override;
+    void apply() override;
     map<int, map<int, float>> dx() override;
     MatrixXf dv() override;
     void draw() override;

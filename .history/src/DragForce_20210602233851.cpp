@@ -10,7 +10,7 @@ void DragForce::setTarget(vector<Particle*> particles)
     this->particles = particles;
 }
 
-void DragForce::apply(System* s)
+void DragForce::apply()
 {
     if (this->active)
     {

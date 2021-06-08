@@ -18,7 +18,6 @@ public:
 	Vec2f m_Force;
 	double mass;
 	double pressure;
-	double density;//????? density of particle?
 	int index;
 	bool rigid;
 	bool cloth;

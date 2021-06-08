@@ -9,7 +9,7 @@ class AngularSpring : public Force {
   AngularSpring(vector<Particle*> particles, float m_angle, float m_ks, float m_kd);
   
   void setTarget(vector<Particle*> particles) override;
-  void apply(System* s) override;
+  void apply() override;
   map<int, map<int, float>> dx() override;
   MatrixXf dv() override;
   void draw() override;

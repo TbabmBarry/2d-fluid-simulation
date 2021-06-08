@@ -26,7 +26,7 @@ class System {
 
 
         bool wall;
-        Grid grid;
+        Grid* grid;
         Solver* solver;
         // Unit step time
         float dt;
