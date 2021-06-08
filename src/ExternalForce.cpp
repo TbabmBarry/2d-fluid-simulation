@@ -21,7 +21,7 @@ void ExternalForce::setActive(bool state){
     active = state;
 }
 
-void ExternalForce::apply(bool springCanBreak)
+void ExternalForce::apply()
 {
     if (!active)
         return;

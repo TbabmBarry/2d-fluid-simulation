@@ -5,7 +5,7 @@ class DragForce : public Force {
         DragForce(vector<Particle*> particles, float drag_k);
 
         void setTarget(vector<Particle*> particles) override;
-        void apply(bool springsCanBreak) override;
+        void apply() override;
         map<int, map<int, float>> dx() override;
         MatrixXf dv() override;
         void draw() override;

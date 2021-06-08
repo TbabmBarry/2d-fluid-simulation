@@ -10,7 +10,7 @@ public:
     ExternalForce(std::vector<Particle*> particles, float force, Vec2f direction);
 
     void setTarget(std::vector<Particle*> particles) override;
-    void apply(bool springsCanBreak) override;
+    void apply() override;
     map<int, map<int, float>> dx() override;
     MatrixXf dv() override;
     void draw() override;

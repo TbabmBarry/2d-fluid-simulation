@@ -22,14 +22,12 @@ void SpringForce::setTarget(vector<Particle*> particles)
     this->particles = particles;
 }
 
-void SpringForce::apply(bool springsCanBreak)
+void SpringForce::apply()
 {
     Vec2f length = particles[0]->m_Position - particles[1]->m_Position; //l=particle p1-particle p2
     Vec2f length_derivate = particles[0]->m_Velocity - particles[1]->m_Velocity; //l'=velocity p1-velocity p2
 
-    if(springsCanBreak && norm(length) > 2 * m_dist){//think of break(or not) length
-        this->toggle();
-    } else if(this->active){
+    if(this->active){
         Vec2f force = (m_ks*(norm(length)-m_dist)+m_kd*((length*length_derivate)/norm(length)))*(length/norm(length));
         particles[0]->m_Force -= force;
         particles[1]->m_Force += force;

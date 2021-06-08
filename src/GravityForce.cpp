@@ -14,7 +14,7 @@ void GravityForce::setTarget(vector<Particle*> particles)
     this->particles = particles;
 }
 
-void GravityForce::apply(bool springsCanBreak)
+void GravityForce::apply()
 {   // force = mg
   if (this->active)
   {
