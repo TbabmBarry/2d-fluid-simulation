@@ -1,4 +1,3 @@
-#pragma once
 #include "Solver.h"
 
 class RungeSovler : public Solver {

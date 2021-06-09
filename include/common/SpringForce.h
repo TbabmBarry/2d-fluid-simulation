@@ -1,4 +1,3 @@
-#pragma once
 #include <stdio.h>
 #include "Force.h"
 #include "Particle.h"
@@ -12,7 +11,7 @@ class SpringForce : public Force {
 
   void draw() override;
   void setTarget(vector<Particle*> particles) override;
-  void apply() override;
+  void apply(System* s) override;
   map<int, map<int, float>> dx() override;
   MatrixXf dv() override;
 

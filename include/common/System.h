@@ -5,9 +5,10 @@
 #include "Force.h"
 #include "Constraint.h"
 #include "Solver.h"
+#include "Grid.h"
 #include <vector>
 #include "Eigen/Dense"
-#include "Grid.h"
+
 
 using namespace Eigen;
 
@@ -16,7 +17,6 @@ class System {
 
     public:
         System(Solver* solver);
-
         // Store all the particles in the system
         vector<Particle*> particles;
         // Store all the forces to be applied on particles
