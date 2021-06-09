@@ -20,13 +20,13 @@ class System {
         // Store all the particles in the system
         vector<Particle*> particles;
         // Store all the forces to be applied on particles
-        vector<Force*> forces;
+        std::vector<Force*> forces;
         // Store all the constraints to be maintained
         vector<Constraint*> constraints;
 
 
         bool wall;
-        Grid grid;
+        Grid* grid;
         Solver* solver;
         // Unit step time
         float dt;

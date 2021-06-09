@@ -3,7 +3,6 @@
 #include <gfx/mat2.h>
 #include "Particle.h"
 #include "Force.h"
-#include "Kernels.h"
 #include <map>
 
 class Viscosity : public Force {

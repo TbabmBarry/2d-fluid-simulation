@@ -62,3 +62,4 @@ float Viscos::sdW(Vec2f r, float h) {
         return 45 / (M_PI * pow(h, 6)) * (h - rd);
     }
     return 0;
+}

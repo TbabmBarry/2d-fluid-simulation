@@ -22,7 +22,7 @@ void SpringForce::setTarget(vector<Particle*> particles)
     this->particles = particles;
 }
 
-void SpringForce::apply()
+void SpringForce::apply(System* s)
 {
     Vec2f length = particles[0]->m_Position - particles[1]->m_Position; //l=particle p1-particle p2
     Vec2f length_derivate = particles[0]->m_Velocity - particles[1]->m_Velocity; //l'=velocity p1-velocity p2

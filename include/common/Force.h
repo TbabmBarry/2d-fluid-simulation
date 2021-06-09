@@ -4,10 +4,11 @@
 #include <map>
 #include "Eigen/Dense"
 #include "Particle.h"
-#include "System.h"
 
 using namespace Eigen;
 using namespace std;
+
+class System;
 
 class Force {
   public:
