@@ -11,6 +11,7 @@ using namespace std;
 
 class Force {
   public:
+  friend class System;
     vector<Particle*> particles;
     virtual void setTarget(vector<Particle*> particles) = 0;
     virtual void apply(System* s) = 0;
