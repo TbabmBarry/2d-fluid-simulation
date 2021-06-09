@@ -21,7 +21,7 @@ public:
 	Vec2f Gravity;
 	double mass;
 	double pressure;
-	double density;
+	double density;//????? density of particle?
 	int index;
 	bool rigid;
 	bool cloth;

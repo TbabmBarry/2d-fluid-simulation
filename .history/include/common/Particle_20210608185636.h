@@ -17,11 +17,9 @@ public:
 	Vec2f m_Velocity;
 	Vec2f m_Force;
 	Vec2f Viscosity;
-	Vec2f PressureForce;
-	Vec2f Gravity;
 	double mass;
 	double pressure;
-	double density;
+	double density;//????? density of particle?
 	int index;
 	bool rigid;
 	bool cloth;

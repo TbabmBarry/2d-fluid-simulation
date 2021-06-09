@@ -50,7 +50,7 @@ double Viscosity::W(Vec2f distance, double h){
 }
 
 double Viscosity::ddW(Vec2f distance, double h){
-  return 45/(PI*pow(h,6))*(h-norm(distance));
+  return 45/(PI*pow(h,6))*(h-distance);
 }
 
 void Viscosity::draw()

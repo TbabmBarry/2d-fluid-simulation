@@ -13,8 +13,8 @@ class Viscosity : public Force {
     map<int, map<int, float>> dx() override;
     MatrixXf dv() override;
     void draw() override;
-    double W(Vec2f distance, double h);
-    double ddW(Vec2f distance, double h);
+    double W(Vec2f distance, h);
+    double ddW(Vec2f distance, h);
   private:
     Vec2f g = Vec2f(0.0f, -9.8f);     // gravity
 };

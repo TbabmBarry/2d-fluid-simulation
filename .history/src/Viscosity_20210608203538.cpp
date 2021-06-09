@@ -28,7 +28,7 @@ void Viscosity::apply(System* s)
         vector<Particle*> targets = s->grid.query(pi);
         for (Particle *pj : targets) {
             viscosityForce += mu * pj->mass * (pj->m_Velocity - pi->m_Velocity) / pj->density
-                             * ddW(pi->m_Position - pj->m_Position, h);
+                             * Viscosity::ddW(pi->m_Position - pj->m_Position, h);
         }
         pi->Viscosity = viscosityForce;
         pi->m_Force += viscosityForce;
@@ -38,19 +38,11 @@ void Viscosity::apply(System* s)
 
 double Viscosity::W(Vec2f distance, double h){
   if (norm(distance)<=h && norm(distance)>=0){
-    return 15/(2*PI*pow(h,3))*
-      (-pow(norm(distance),3)/(2*pow(h,3))
-      +pow(norm(distance),2)/pow(h,2)
-      +h/(2*norm(distance))
-      -1);
+    return 15/(2*PI*pow(h,3));
   }
   else{
     return 0;
   }
-}
-
-double Viscosity::ddW(Vec2f distance, double h){
-  return 45/(PI*pow(h,6))*(h-norm(distance));
 }
 
 void Viscosity::draw()
