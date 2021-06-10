@@ -5,13 +5,15 @@
 #include "Force.h"
 #include <map>
 
-class Viscosity : public Force {
+class PressureForce : public Force {
   public:
-    Viscosity(vector<Particle*> particles);
+    PressureForce(vector<Particle*> particles);
     void setTarget(vector<Particle*> particles) override;
     void apply(System* s) override;
     map<int, map<int, float>> dx() override;
     MatrixXf dv() override;
     void draw() override;
-    float mu = 50;//Ns/m^2
+    double k=0.08; //(L*atm)/(L*mol)
+    double restrho=1000; //kg/m^3 for water
+    // double restrho=100; //kg/m^3 for air
 };

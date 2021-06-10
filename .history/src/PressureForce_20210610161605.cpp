@@ -1,4 +1,4 @@
-#include "Viscosity.h"
+#include "PressureForce.h"
 #include "Kernels.h"
 #include "System.h"
 #include <GL/glut.h>
@@ -6,26 +6,27 @@
 #include <math.h>
 #define PI 3.1415926535897932384626433832795
 
-Viscosity::Viscosity(vector<Particle*> particles)
+PressureForce::PressureForce(vector<Particle*> particles)
 {
     this->setTarget(particles);
 }
 
-void Viscosity::setTarget(vector<Particle*> particles)
+void PressureForce::setTarget(vector<Particle*> particles)
 {
     this->particles = particles;
 }
 
-void Viscosity::apply(System* s)
+void PressureForce::apply(System* s)
 {
   if (this->active)
   {
+    float mu = 10;
     for (Particle *pi : particles) {
         if (pi->rigid || pi->cloth) continue;
         Vec2f viscosityForce = Vec2f(0, 0);
+
         vector<Particle*> targets = s->grid->query(pi);
         for (Particle *pj : targets) {
-            if (pj->rigid || pj->cloth) continue;
             viscosityForce += mu * pj->mass * (pj->m_Velocity - pi->m_Velocity) / pj->density
                              * Viscos::sdW(pi->m_Position - pj->m_Position);
         }
@@ -35,12 +36,12 @@ void Viscosity::apply(System* s)
   }
 }
 
-map<int, map<int, float>> Viscosity::dx()
+map<int, map<int, float>> PressureForce::dx()
 {
     return map<int, map<int, float>>();
 }
 
-MatrixXf Viscosity::dv()
+MatrixXf PressureForce::dv()
 {
     return MatrixXf();
 }

@@ -25,7 +25,6 @@ void Viscosity::apply(System* s)
         Vec2f viscosityForce = Vec2f(0, 0);
         vector<Particle*> targets = s->grid->query(pi);
         for (Particle *pj : targets) {
-            if (pj->rigid || pj->cloth) continue;
             viscosityForce += mu * pj->mass * (pj->m_Velocity - pi->m_Velocity) / pj->density
                              * Viscos::sdW(pi->m_Position - pj->m_Position);
         }

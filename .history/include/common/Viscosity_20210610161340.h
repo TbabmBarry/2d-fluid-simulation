@@ -13,5 +13,4 @@ class Viscosity : public Force {
     map<int, map<int, float>> dx() override;
     MatrixXf dv() override;
     void draw() override;
-    float mu = 50;//Ns/m^2
 };
