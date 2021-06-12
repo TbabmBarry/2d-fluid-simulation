@@ -5,7 +5,7 @@ class Particle
 {
 public:
 
-	Particle(const Vec2f & ConstructPos, float mass, int index, bool cloth, bool rigid);
+	Particle(const Vec2f & ConstructPos, float mass, int index);
 	virtual ~Particle(void);
 
 	void reset();

@@ -28,6 +28,7 @@ public:
     VectorXf getDerivativeState();
 
     void setState(VectorXf newState);
+    void recomputeAuxiliaryVars();
 
     std::vector<Particle *> particles;
     Vec2f MassCenter;

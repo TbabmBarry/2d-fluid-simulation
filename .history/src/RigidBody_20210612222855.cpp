@@ -151,14 +151,14 @@ float RigidBody::density() {
 }
 
 void RigidBody::draw(bool drawVelocity, bool drawForce) {
-    Vec2f v1 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v2 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v3 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v4 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v5 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2) + x;
-    Vec2f v6 = R * Vec2f(dimension[0] / 2, dimension[1] / 2) + x;
-    Vec2f v7 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2) + x;
-    Vec2f v8 = R * Vec2f(dimension[0] / 2, dimension[1] / 2) + x;
+    Vec2f v1 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v2 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v3 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2, dimension[2] / 2) + x;
+    Vec2f v4 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2, dimension[2] / 2) + x;
+    Vec2f v5 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v6 = R * Vec2f(dimension[0] / 2, dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v7 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2, dimension[2] / 2) + x;
+    Vec2f v8 = R * Vec2f(dimension[0] / 2, dimension[1] / 2, dimension[2] / 2) + x;
     glBegin(GL_LINES);
     glColor3f(1.f, 1.f, 1.f);
     glVertex3f(v1[0], v1[1], v1[2]);

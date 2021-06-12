@@ -120,17 +120,20 @@ VectorXf RigidBody::getDerivativeState() {
     y[1] = v[1];
 
     //calculate product, convert to resulting matrix to quaternion
-    y[2] = omega * R[0];
-    y[3] = omega * R[1];
-    y[4] = omega * R[2];
-    y[5] = omega * R[3];
+    y[3] = qdot.w() * 0.05f;
+    y[4] = qdot.x() * 0.05f;
+    y[5] = qdot.y() * 0.05f;
+    y[6] = qdot.z() * 0.05f;
 
     //Pdot = F
-    y[6] = force[0];
-    y[7] = force[1];
+    y[7] = force[0];
+    y[8] = force[1];
+    y[9] = force[2];
 
     //Ldot = torque
-    y[8] = torque;
+    y[10] = torque[0];
+    y[11] = torque[1];
+    y[12] = torque[2];
     return y;
 }
 
@@ -151,14 +154,14 @@ float RigidBody::density() {
 }
 
 void RigidBody::draw(bool drawVelocity, bool drawForce) {
-    Vec2f v1 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v2 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v3 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v4 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2) + x;
-    Vec2f v5 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2) + x;
-    Vec2f v6 = R * Vec2f(dimension[0] / 2, dimension[1] / 2) + x;
-    Vec2f v7 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2) + x;
-    Vec2f v8 = R * Vec2f(dimension[0] / 2, dimension[1] / 2) + x;
+    Vec2f v1 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v2 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v3 = R * Vec2f(-dimension[0] / 2, -dimension[1] / 2, dimension[2] / 2) + x;
+    Vec2f v4 = R * Vec2f(dimension[0] / 2, -dimension[1] / 2, dimension[2] / 2) + x;
+    Vec2f v5 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v6 = R * Vec2f(dimension[0] / 2, dimension[1] / 2, -dimension[2] / 2) + x;
+    Vec2f v7 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2, dimension[2] / 2) + x;
+    Vec2f v8 = R * Vec2f(dimension[0] / 2, dimension[1] / 2, dimension[2] / 2) + x;
     glBegin(GL_LINES);
     glColor3f(1.f, 1.f, 1.f);
     glVertex3f(v1[0], v1[1], v1[2]);
