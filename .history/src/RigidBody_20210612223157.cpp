@@ -160,7 +160,7 @@ void RigidBody::draw(bool drawVelocity, bool drawForce) {
     Vec2f v7 = R * Vec2f(-dimension[0] / 2, dimension[1] / 2) + x;
     Vec2f v8 = R * Vec2f(dimension[0] / 2, dimension[1] / 2) + x;
     glBegin(GL_LINES);
-    // glColor2f(1.f, 1.f);
+    glColor2f(1.f, 1.f);
     glVertex2f(v1[0], v1[1]);
     glVertex2f(v2[0], v2[1]);
     glVertex2f(v1[0], v1[1]);
@@ -170,14 +170,14 @@ void RigidBody::draw(bool drawVelocity, bool drawForce) {
     glVertex2f(v3[0], v3[1]);
     glVertex2f(v4[0], v4[1]);
 
-    glVertex2f(v5[0], v5[1]);
-    glVertex2f(v6[0], v6[1]);
-    glVertex2f(v5[0], v5[1]);
-    glVertex2f(v7[0], v7[1]);
-    glVertex2f(v6[0], v6[1]);
-    glVertex2f(v8[0], v8[1]);
-    glVertex2f(v7[0], v7[1]);
-    glVertex2f(v8[0], v8[1]);
+    glVertex3f(v5[0], v5[1], v5[2]);
+    glVertex3f(v6[0], v6[1], v6[2]);
+    glVertex3f(v5[0], v5[1], v5[2]);
+    glVertex3f(v7[0], v7[1], v7[2]);
+    glVertex3f(v6[0], v6[1], v6[2]);
+    glVertex3f(v8[0], v8[1], v8[2]);
+    glVertex3f(v7[0], v7[1], v7[2]);
+    glVertex3f(v8[0], v8[1], v8[2]);
 
     glVertex3f(v1[0], v1[1], v1[2]);
     glVertex3f(v5[0], v5[1], v5[2]);
